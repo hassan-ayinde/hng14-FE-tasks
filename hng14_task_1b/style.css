@@ -37,7 +37,7 @@ body {
 }
 .profile-card-inner-header {
   height: 80px;
-  background: url("../hng14_task_1b/image/unnamed.png");
+  background: url("/hng14_task_1b/image/unnamed.png");
   background-color: #2563eb;
   background-blend-mode: multiply;
   background-size: cover;

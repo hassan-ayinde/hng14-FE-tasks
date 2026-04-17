@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>profile card</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <article data-testid="test-profile-card" class="profile-card-container">
+      <div class="profile-card-header">
+        <div class="profile-card-inner-header"></div>
+        <div>
+          <figure>
+            <img
+              src="./image/IMG-20240928-WA0003.jpg"
+              alt="avatar"
+              data-testid="test-user-avatar"
+              class="avatar"
+            />
+          </figure>
+
+          <nav>
+            <ul data-testid="test-user-social-links">
+              <li>
+                <a
+                  href="#"
+                  data-testid="test-user-social-twitter"
+                  title="Twitter"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src="./image/twitter.png" alt="" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  data-testid="test-user-social-facebook"
+                  title="Facebook"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src="./image/facebook.png" alt="" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  data-testid="test-user-social-github"
+                  title="GitHub"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src="./image/github.png" alt="" />
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <div class="profile-card-body">
+        <h2 data-testid="test-user-name">Toheeb Hassan Ayinde</h2>
+        <p data-testid="test-user-time" class="time">time</p>
+        <p data-testid="test-user-bio" class="user-bio">
+          Curating spaces where digital intent meets physical permanence. I
+          specialize in high-concept spatial interfaces and minimalist
+          structural aesthetics for modern ecosystems.
+        </p>
+
+        <div class="test-profile-other-info">
+          <section>
+            <h3>Hobbies</h3>
+            <ul data-testid="test-user-hobbies" class="list">
+              <li>Coding</li>
+              <li>Reading</li>
+              <li>Traveling</li>
+              <li>Music</li>
+            </ul>
+          </section>
+          <section>
+            <h3>Dislikes</h3>
+            <ul data-testid="test-user-dislikes" class="list">
+              <li>Procrastination</li>
+              <li>Dishonesty</li>
+              <li>Negativity</li>
+            </ul>
+          </section>
+        </div>
+      </div>
+    </article>
+    <script src="script.js"></script>
+  </body>
+</html>

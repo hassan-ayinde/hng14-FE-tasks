@@ -10,6 +10,12 @@ const editButtonElement = document.querySelector(
 const deleteButtonElement = document.querySelector(
   '[data-testid="test-todo-delete-button"]',
 );
+const cardContainerElement = document.querySelector(".card-container");
+const editFormElement = document.querySelector(".task-edit-form-wrapper");
+const titleInput = document.querySelector(
+  '[data-testid="test-todo-edit-title-input"]',
+);
+
 checkboxElement.addEventListener("change", () => {
   if (checkboxElement.checked) {
     taskStatusElement.textContent = "done";
@@ -17,10 +23,12 @@ checkboxElement.addEventListener("change", () => {
   }
 });
 editButtonElement.addEventListener("click", () => {
-  console.log("Edit Clicked")
+  editFormElement.classList.add("edit-card");
+  editFormElement.classList.remove("view-card");
+  cardContainerElement.classList.add("view-card");
 });
 deleteButtonElement.addEventListener("click", () => {
-  alert("Delete Clicked")
+  alert("Delete Clicked");
 });
 const dueDate = new Date("2026-04-16");
 const updateRemainingTime = () => {

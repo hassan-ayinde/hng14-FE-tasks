@@ -172,8 +172,6 @@ project/
 │   ├── domElements.js
 │   └── time.js
 │
-├── tests/
-│   └── todo.test.js
 │
 └── README.md
 ```

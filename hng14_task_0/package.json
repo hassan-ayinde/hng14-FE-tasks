@@ -1,0 +1,18 @@
+{
+  "name": "hng14_task_0",
+  "version": "1.0.0",
+  "description": "A simple, responsive Todo Task Card UI built with HTML, CSS, and JavaScript. This component displays task details such as priority, status, description, tags, deadline, and real-time countdown.",
+  "main": "script.js",
+  "scripts": {
+    "test": "vitest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "@testing-library/dom": "^10.4.1",
+    "jsdom": "^29.0.2",
+    "vitest": "^4.1.4"
+  }
+}

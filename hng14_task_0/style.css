@@ -11,7 +11,6 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-
 }
 .card-container {
   width: 90vw;
@@ -22,7 +21,7 @@ body {
   border-left: 4px solid #0049e6;
   padding: 15px 10px;
 }
-h2{
+h2 {
   font-size: 17px;
   color: #333;
   margin: 5px 0px;
@@ -37,7 +36,7 @@ h2{
   align-items: center;
 }
 .task-priority {
-  background-color: #B80438;
+  background-color: #b80438;
   color: #fff;
   padding: 4px 8px;
   border-top-left-radius: 6px;
@@ -46,12 +45,12 @@ h2{
 .task-status {
   width: 8px;
   height: 8px;
-  background-color: #B80438;
+  background-color: #b80438;
   border-radius: 50%;
   display: inline-block;
 }
 .task-status-wrapper {
-  background-color: #E5EDFF;
+  background-color: #e5edff;
   color: #6f86e0;
   padding: 4px 8px;
   border-top-right-radius: 6px;
@@ -85,6 +84,28 @@ h2{
   margin-bottom: 10px;
   line-height: 1.5;
 }
+.collapsed {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.expanded {
+  display: block;
+  height: 100px;
+  overflow-y: scroll;
+}
+.expand-btn {
+  text-transform: capitalize;
+  border: none;
+  display: inline-block;
+  padding: 3px 7px;
+  margin-bottom: 15px;
+  color: #fff;
+  background-color: #0049e6;
+  border-radius: 5px;
+  cursor: pointer;
+}
 .task-tag-wrapper {
   display: flex;
   gap: 10px;
@@ -106,13 +127,16 @@ h2{
   border-bottom: 1px solid #c8d8f3;
   padding-bottom: 10px;
 }
+.task-completion input {
+  width: fit-content;
+}
 label {
   font-size: small;
   color: #333;
 }
 input[type="checkbox"] {
   cursor: pointer;
-  accent-color: #0052FF;
+  accent-color: #0052ff;
 }
 .task-time {
   font-size: 11px;
@@ -137,4 +161,108 @@ input[type="checkbox"] {
   display: flex;
   align-items: center;
   gap: 5px;
+}
+.timeframe {
+  display: inline;
+}
+.task-edit-form-wrapper {
+  background-color: #ffffff;
+  width: 300px;
+  padding: 0px 15px;
+  border-radius: 10px;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+  justify-content: space-evenly;
+}
+label {
+  display: block;
+  margin-bottom: 3px;
+}
+label,
+option,
+select,
+.action-btns > button {
+  text-transform: capitalize;
+}
+input {
+  padding: 3px 10px;
+  border-radius: 5px;
+  border: 1px solid;
+  height: 25px;
+}
+input,
+textarea,
+.task-priority-dropdown,
+.task-status-dropdown,
+select {
+  width: 100%;
+}
+select {
+  padding: 5px;
+}
+textarea {
+  resize: none;
+  padding: 10px;
+}
+.task-indicator-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+.action-btns {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  margin-top: 5px;
+}
+.action-btns button {
+  display: inline-block;
+  padding: 5px 10px;
+  height: 30px;
+  cursor: pointer;
+  border: none;
+  border-radius: 7px;
+  margin: 10px 0;
+}
+.action-btns button:hover {
+  opacity: 0.7;
+}
+.action-btns button:last-child {
+  background-color: #0052ff;
+  color: #fff;
+}
+.action-btns button:first-child {
+  border: 1px solid #0049e6;
+  background-color: #fff;
+}
+.view-card {
+  display: none;
+}
+.edit-card {
+  display: block;
+}
+sup {
+  display: none;
+  border: 1px solid #b80438;
+  padding: 3px 5px;
+  border-radius: 20px;
+  color: #b80438;
+}
+.title-done {
+  text-decoration: line-through;
+  color: #333;
+}
+input:last-child{
+  cursor: pointer;
+}
+@media all and (max-width:768px) {
+  .task-indicator-container{
+    display: flex;
+    flex-direction: column;
+  }
 }

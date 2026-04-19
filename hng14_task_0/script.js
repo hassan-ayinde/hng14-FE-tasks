@@ -3,30 +3,35 @@ import {
   handleDelete,
   handleCheckboxChange,
   handleTimeUpdate,
+  handleCancelEdit,
+  handleSaveEdit,
 } from "./components/todoHandlers.js";
+import { domElements } from "./utils/domElements.js";
+
 
 const init = () => {
-  const dueDateElement = document.querySelector(
-    '[data-testid="test-todo-time-remaining"]',
+  handleCheckboxChange(
+    domElements.checkboxElement,
+    domElements.taskStatusElement,
   );
-  const taskStatusElement = document.querySelector(
-    '[data-testid="test-todo-status"]',
+  handleDelete(domElements.deleteButtonElement);
+  handleEdit(
+    domElements.editButtonElement,
+    domElements.cardContainerElement,
+    domElements.editFormElement,
   );
-  const checkboxElement = document.querySelector(
-    '[data-testid="test-todo-complete-toggle"]',
+  handleCancelEdit(
+    domElements.cancelBtn,
+    domElements.editFormElement,
+    domElements.cardContainerElement,
   );
-  const editButtonElement = document.querySelector(
-    '[data-testid="test-todo-edit-button"]',
-  );
-  const deleteButtonElement = document.querySelector(
-    '[data-testid="test-todo-delete-button"]',
+  handleSaveEdit(
+    domElements.saveBtn,
+    domElements.editFormElement,
+    domElements.cardContainerElement,
   );
 
-  handleCheckboxChange(checkboxElement, taskStatusElement);
-  handleDelete(deleteButtonElement);
-  handleEdit(editButtonElement);
-
-  handleTimeUpdate(new Date("2026-04-15"), dueDateElement);
+  handleTimeUpdate(new Date("2026-04-15"), domElements.dueDateElement);
 };
 
 document.addEventListener("DOMContentLoaded", init);

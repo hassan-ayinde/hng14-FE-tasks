@@ -7,11 +7,7 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <section
-      role="region"
-      class="card-container"
-      data-testid="data-todo-card"
-    >
+    <section role="region" class="card-container" data-testid="data-todo-card">
       <div class="task-badge">
         <span
           data-testid="test-todo-priority"
@@ -20,7 +16,10 @@
           >high</span
         >
         <div class="task-status-wrapper">
-          <span class="task-status"></span>
+          <span
+            class="task-status"
+            data-testid="test-todo-priority-indicator"
+          ></span>
           <span data-testid="test-todo-status" aria-label="task-status"
             >pending</span
           >
@@ -29,15 +28,21 @@
       <div class="task-content-body">
         <div>
           <h2 data-testid="test-todo-title">implement oAuth2 flow</h2>
-          <div data-testid="test-todo-collapsible-section">
+          <div data-testid="test-todo-collapsible-section" class="collapsed">
             <p data-testid="test-todo-description" class="task-description">
               Implement OAuth2 flow for the application to allow users to
               authenticate using their social media accounts.
             </p>
-            <button type="button" data-testid="test-todo-expand-toggle">
-              view more
-            </button>
           </div>
+          <button
+              type="button"
+              data-testid="test-todo-expand-toggle"
+              aria-expanded="false"
+              aria-controls="todo-description"
+              class="expand-btn"
+            >
+              expand
+            </button>
         </div>
         <div class="task-action-btns">
           <button
@@ -113,13 +118,13 @@
               </svg>
             </span>
             <time datetime="2026-04-16" data-testid="test-todo-due-date"
-              >due april 16, 2026</time
+              >due <span class="due-date">april 16, 2026</span></time
             >
           </div>
         </div>
         <div>
           <div>
-            <h3>timeframe</h3>
+            <h3 class="timeframe">timeframe</h3>
             <sup data-testid="test-todo-overdue-indicator">overdue</sup>
           </div>
 
@@ -170,26 +175,25 @@
           <div class="task-priority-dropdown">
             <label for="task_priority">priority level</label>
             <select
-              name=""
+              name="task_priority"
               id="task_priority"
               data-testid="test-todo-edit-priority-select"
             >
-              <option value="high">high</option>
               <option value="medium">medium</option>
+              <option value="high">high</option>
               <option value="low">low</option>
             </select>
           </div>
           <div class="task-status-dropdown">
-            <div data-testid="test-todo-priority-indicator"></div>
             <label for="task_status">status</label>
             <select
               name="task_status"
               id="task_status"
               data-testid="test-todo-status-control"
             >
-              <option value="">done</option>
-              <option value="">pending</option>
-              <option value="">in progress</option>
+              <option value="done">done</option>
+              <option value="pending">pending</option>
+              <option value="in Progress">in progress</option>
             </select>
           </div>
         </div>
@@ -197,7 +201,7 @@
           <label for="task_due_date">due date</label>
           <input
             type="date"
-            name=""
+            name="task_due_date"
             id="task_due_date"
             data-testid="test-todo-edit-due-date-input"
           />
@@ -212,7 +216,7 @@
         </div>
       </form>
     </div>
-    
+
     <script src="script.js" type="module"></script>
   </body>
 </html>

@@ -84,6 +84,28 @@ h2 {
   margin-bottom: 10px;
   line-height: 1.5;
 }
+.collapsed {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.expanded {
+  display: block;
+  height: 100px;
+  overflow-y: scroll;
+}
+.expand-btn {
+  text-transform: capitalize;
+  border: none;
+  display: inline-block;
+  padding: 3px 7px;
+  margin-bottom: 15px;
+  color: #fff;
+  background-color: #0049e6;
+  border-radius: 5px;
+  cursor: pointer;
+}
 .task-tag-wrapper {
   display: flex;
   gap: 10px;
@@ -140,7 +162,9 @@ input[type="checkbox"] {
   align-items: center;
   gap: 5px;
 }
-
+.timeframe {
+  display: inline;
+}
 .task-edit-form-wrapper {
   background-color: #ffffff;
   width: 300px;
@@ -166,7 +190,7 @@ select,
 input {
   padding: 3px 10px;
   border-radius: 5px;
-  border: 1px solid red;
+  border: 1px solid;
   height: 25px;
 }
 input,
@@ -179,7 +203,7 @@ select {
 select {
   padding: 5px;
 }
-textarea{
+textarea {
   resize: none;
   padding: 10px;
 }
@@ -205,10 +229,40 @@ textarea{
   border-radius: 7px;
   margin: 10px 0;
 }
-
+.action-btns button:hover {
+  opacity: 0.7;
+}
+.action-btns button:last-child {
+  background-color: #0052ff;
+  color: #fff;
+}
+.action-btns button:first-child {
+  border: 1px solid #0049e6;
+  background-color: #fff;
+}
 .view-card {
   display: none;
 }
 .edit-card {
   display: block;
+}
+sup {
+  display: none;
+  border: 1px solid #b80438;
+  padding: 3px 5px;
+  border-radius: 20px;
+  color: #b80438;
+}
+.title-done {
+  text-decoration: line-through;
+  color: #333;
+}
+input:last-child{
+  cursor: pointer;
+}
+@media all and (max-width:768px) {
+  .task-indicator-container{
+    display: flex;
+    flex-direction: column;
+  }
 }

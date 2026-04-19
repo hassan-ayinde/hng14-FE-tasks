@@ -1,3 +1,5 @@
+import { domElements } from "./domElements.js";
+import { handleTaskCompleted } from "../components/todoHandlers.js";
 export const updateRemainingTime = (dueDate, dueDateElement) => {
   const currentDate = new Date();
   const timeRemaining = dueDate - currentDate;
@@ -12,12 +14,18 @@ export const updateRemainingTime = (dueDate, dueDateElement) => {
 
 export const formatRemainingTime = (timeData, dueDateElement) => {
   const { days, hours, minutes, seconds, timeRemaining } = timeData;
+  const isCompleted = handleTaskCompleted();
+  if (isCompleted) return;
   if (timeRemaining < 0) {
     dueDateElement.textContent = `overdue by ${Math.abs(days)}d ${Math.abs(hours)}h ${Math.abs(minutes)}m ${Math.abs(seconds)}s`;
+    domElements.overDueBadge.style.display = "inline-block";
     return;
-  } else if (timeRemaining === 0) {
-    dueDateElement.textContent = "due now";
-  } else {
+  }
+  // else if (timeRemaining === 0) {
+  //   dueDateElement.textContent = "due now";
+  // }
+  else {
+    domElements.overDueBadge.style.display = "none";
     dueDateElement.textContent = `due in ${days}d ${hours}h ${minutes}m ${seconds}s`;
   }
 };

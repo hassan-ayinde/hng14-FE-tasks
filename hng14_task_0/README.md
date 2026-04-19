@@ -1,115 +1,286 @@
-# Todo Task Card Component
+# 📝 Advanced Todo Card (Stage 1)
 
-A simple, responsive Todo Task Card UI built with HTML, CSS, and JavaScript. This component displays task details such as priority, status, description, tags, deadline, and real-time countdown.
+## 📌 Overview
 
-## Features
+This project is an advanced, interactive Todo Card built using **HTML, CSS, and JavaScript**. It extends a static component (Stage 0) into a **stateful, accessible, and dynamic UI component**.
 
-- Task priority indicator (e.g., High)
-- Task status (Pending → Done)
-- Editable & deletable task actions
-- Tags for categorization (#security, #backend, #auth)
-- Mark task as complete
-- Real-time countdown to deadline
-- Overdue detection
-- Accessible with aria-label and data-testid
-- Fully responsive design
+The card supports editing, status management, priority updates, time tracking, and accessibility enhancements — all without a framework.
 
-## Tech Stack
+---
 
-HTML5 – Structure
-CSS3 – Styling (Flexbox + responsive layout)
-Vanilla JavaScript – Interactivity & time logic
+## 🚀 Features
 
-## Project Structure
+### ✏️ Edit Mode
 
-📁 project-root
-│── index.html
-│── style.css
-│── script.js
+* Edit title, description, priority, status, and due date
+* Save updates UI instantly
+* Cancel restores previous values
+* Focus moves into form and returns to Edit button on close
 
-## How It Works
+---
 
-- Task Completion
-When the checkbox is checked:
-Status changes from pending → done
-Accessibility label updates
+### 🔁 Status Management
 
-```js
-checkboxElement.addEventListener("change", () => {
-  if (checkboxElement.checked) {
-    taskStatusElement.textContent = "done";
-    taskStatusElement.setAttribute("aria-label", "completed-status");
-  }
-});
-```
+* Status options: `Pending`, `In Progress`, `Done`
+* Fully synced across:
 
-- Action Buttons
-Edit Button → Logs action to console
-Delete Button → Shows alert
+  * Checkbox
+  * Status label
+  * Status dropdown
+* When marked **Done**:
 
-```js
-editButtonElement.addEventListener("click", () => {
-  console.log("Edit Clicked")
-});
+  * Timer stops
+  * Displays `"Completed"`
+  * Applies strike-through styling
 
-deleteButtonElement.addEventListener("click", () => {
-  alert("Delete Clicked")
-});
-```
+---
 
-- Countdown Timer
-Calculates time difference between current date and deadline
-Updates every 60 seconds
-Handles:
-Future → due in Xd Xh Xm Xs
-Present → due now
-Past → overdue by Xd Xh Xm Xs
+### 🎯 Priority Indicator
 
-```js
-setInterval(updateRemainingTime, 60000);
-```
+* Dynamic visual styling:
 
-## UI Highlights
+  * High → Red
+  * Medium → Orange
+  * Low → Green
+* Updates instantly when edited
 
-Clean card design with subtle shadows
-Color-coded priority and status
-Tag chips for better categorization
-Mobile-friendly layout
+---
 
-## Testability
+### 📖 Expand / Collapse Description
 
-The app uses data-testid attributes, making it easy to test with:
+* Long descriptions are truncated
+* Toggle: **View more / View less**
+* Keyboard accessible (`aria-expanded`, `aria-controls`)
 
-React Testing Library
-Vitest
-Cypress
+---
 
-## Possible Improvements
+### ⏱️ Time Management
 
-- Connect to backend (Node.js + MongoDB)
-- Implement real edit functionality (modal/form)
-- Add delete confirmation modal
-- Persist tasks (localStorage or database)
-- Add multiple task support
-- Dark mode support
-- Notifications for deadlines
+* Updates every 60 seconds
+* Displays:
 
-## SKILLS GAINED
+  * `Due in X days/hours/minutes`
+  * `Overdue by X time`
+* Overdue badge appears only when needed
+* Stops updating when task is completed
 
-- DOM manipulation
-- Event handling
-- Time/date calculations in JavaScript
-- Accessibility basics
-- Writing test-friendly code
-- UI component structuring
+---
 
-## Getting Started
+### ♿ Accessibility
+
+* Proper `<label>` usage for all inputs
+* Keyboard navigation supported
+* Focus is trapped inside edit form (bonus)
+* ARIA attributes for interactive elements
+* Prepared for `aria-live` updates
+
+---
+
+### 📱 Responsive Design
+
+* Mobile (320px), Tablet (768px), Desktop (1024px+)
+* Edit form stacks on smaller screens
+* Handles long content gracefully
+
+---
+
+## 🔄 What Changed from Stage 0
+
+* Static UI → Interactive component
+* Added edit functionality
+* Introduced state handling (status, priority, time)
+* Implemented accessibility improvements
+* Added dynamic time tracking
+* Improved UI responsiveness
+
+---
+
+## 🛠️ Installation
+
+### 1. Clone the repository
 
 ```bash
-Clone the repo:
-git clone https://github.com/your-username/todo-task-card.git
-Open the project:
-cd todo-task-card
-Run in browser:
-Open index.html
+git clone https://github.com/your-username/todo-card.git
+cd todo-card
 ```
+
+### 2. Install dependencies (for testing)
+
+```bash
+npm install
+```
+
+---
+
+## ▶️ Usage
+
+### Run locally
+
+Simply open:
+
+```bash
+index.html
+```
+
+Or use a live server (recommended):
+
+```bash
+npx live-server
+```
+
+---
+
+## 🧪 Testing (Vitest)
+
+### Run tests
+
+```bash
+npx vitest
+```
+
+### Run with UI
+
+```bash
+npx vitest --ui
+```
+
+---
+
+### ✅ What is tested
+
+* DOM rendering
+* Status updates
+* Edit form behavior
+* Time formatting logic
+* Accessibility attributes
+
+---
+
+## 📁 Project Structure
+
+```bash
+project/
+│
+├── index.html
+├── style.css
+├── script.js
+│
+├── components/
+│   └── todoHandlers.js
+│
+├── utils/
+│   ├── domElements.js
+│   └── time.js
+│
+├── tests/
+│   └── todo.test.js
+│
+└── README.md
+```
+
+---
+
+## 🧠 Design Decisions
+
+### 1. Separation of Concerns
+
+The codebase is structured into:
+
+* **DOM Layer** → `domElements.js`
+* **Logic Layer** → `todoHandlers.js`
+* **Utility Layer** → `time.js`
+
+This improves:
+
+* Maintainability
+* Testability
+* Readability
+
+---
+
+### 2. Single Source of Truth (State-driven UI)
+
+Instead of relying on DOM values directly, the UI is controlled through:
+
+* Status state
+* Priority state
+* Time state
+
+This avoids inconsistent UI behavior and duplicated logic.
+
+---
+
+### 3. Reusable Functions
+
+Functions like:
+
+* `handleTimeUpdate`
+* `handleTaskCompleted`
+* `toggleEditMode`
+
+are reusable and decoupled, making the system scalable.
+
+---
+
+### 4. Accessibility First Approach
+
+* ARIA attributes used for interactive elements
+* Focus management implemented for edit mode
+* Keyboard navigation supported
+
+This ensures inclusivity and better usability.
+
+---
+
+### 5. Defensive UI Updates
+
+Every “show” action (e.g., overdue badge) has a corresponding “hide” condition to prevent stale UI states.
+
+---
+
+### 6. Interval Management
+
+Timers are:
+
+* Stored in a variable
+* Cleared before creating new ones
+
+This prevents:
+
+* Memory leaks
+* Multiple intervals running simultaneously
+
+---
+
+### 7. Progressive Enhancement
+
+Core functionality works without advanced features, while enhancements (like collapse, animations, accessibility) improve experience without breaking usability.
+
+---
+
+## ⚠️ Known Limitations
+
+* Single card only (not a full app)
+* No persistent storage (e.g., localStorage)
+* No animations for expand/collapse (can be added)
+
+---
+
+## 🚀 Future Improvements
+
+* Add multiple todo cards (full app)
+* Persist data using localStorage or API
+* Add animations and transitions
+* Convert to component-based architecture (React)
+
+---
+
+## 👤 Author
+
+**Toheeb Ayinde Hassan**
+
+---
+
+## 📄 License
+
+This project is for educational purposes.

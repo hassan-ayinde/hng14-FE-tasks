@@ -4,7 +4,7 @@ import LOGO from "@/assets/images/logo.svg";
 import PROFILEIMAGE from "@/assets/images/profile_img.png";
 import { GoDotFill } from "react-icons/go";
 import { useContext } from "react";
-import { AppBarContext } from "@/context/AppBarContext";
+import { AppBarContext } from "@/context/app-bar/AppBarContext";
 
 const AppBar = () => {
   const { isDark: theme, handleThemeChange: onThemeChange } = useContext(

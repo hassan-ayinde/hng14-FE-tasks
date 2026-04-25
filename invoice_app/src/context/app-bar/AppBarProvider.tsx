@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useContext } from "react";
 import { AppBarContext } from "./AppBarContext";
+import { ThemeContext } from "../theme/ThemeContext";
 
 const AppBarProvider = ({ children }: { children: React.ReactNode }) => {
-  const [isDark, setIsDark] = useState<boolean>(false);
-  const handleThemeChange = () => {
-    setIsDark(() => !isDark);
-  };
+  const { theme, toggleTheme } = useContext(ThemeContext);
+  const isDark = theme === "dark";
+  const handleThemeChange = toggleTheme;
 
   return (
     <AppBarContext.Provider value={{ isDark, handleThemeChange }}>

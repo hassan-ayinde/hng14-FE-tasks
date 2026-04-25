@@ -1,14 +1,15 @@
 // import AllInvoices from "./pages/allInvoices";
 import "./App.css";
 import EmptyInvoice from "./pages/EmptyInvoice";
-import AppBarProvider from "./context/AppBarProvider";
+import MainProvider from "./context/MainProvider";
+
 
 function App() {
   return (
-    <AppBarProvider>
-      {/* <AllInvoices/> */}
-      <EmptyInvoice />
-    </AppBarProvider>
+    <MainProvider>
+        {/* <AllInvoices/> */}
+        <EmptyInvoice />
+    </MainProvider>
   );
 }
 

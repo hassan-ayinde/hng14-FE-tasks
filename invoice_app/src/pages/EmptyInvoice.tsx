@@ -12,7 +12,7 @@ const EmptyInvoice = () => {
         </div>
         <div className="w-full">
           <MainHeader />
-          <section className="w-full h-[500px] overflow-hidden flex flex-col items-center justify-center gap-5">
+          <section className="w-full h-125 overflow-hidden flex flex-col items-center justify-center gap-5">
             <img src={CAMPAIGNSVG} alt="Campaign" />
             <div className="flex flex-col items-center justify-center">
               <h2 className="font-bold">There is nothing here</h2>

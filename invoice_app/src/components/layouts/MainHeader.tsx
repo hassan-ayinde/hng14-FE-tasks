@@ -36,7 +36,7 @@ const MainHeader = () => {
                 onOpenChange={(open) => setIsOpen(open)}
               >
                 <DropdownMenuTrigger className="flex justify-center items-center">
-                  <Button className="bg-white text-black hover:bg-gray-100 pointer-events-auto cursor-pointer">
+                  <Button variant="outline" className="bg-white text-black hover:bg-gray-100 pointer-events-auto cursor-pointer">
                     <span>Filter</span>
                     {isOpen ? <MdKeyboardArrowUp /> : <MdKeyboardArrowDown />}
                   </Button>

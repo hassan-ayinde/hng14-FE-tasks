@@ -1,3 +1,41 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+body {
+  font-family: "Inter", sans-serif;
+}
 [data-slot="dropdown-menu-item"] {
   cursor: pointer !important;
+}
+[data-slot="sheet-overlay"] {
+  -webkit-backdrop-filter: unset !important;
+  backdrop-filter: unset !important;
+  background-color: black !important;
+  opacity: 0.5 !important;
+  inset: 0 0 0 60px !important;
+}
+.MuiPickersInputBase-root {
+  height: 35px;
+  border-radius: 10px !important;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.MuiSvgIcon-root {
+  height: 20px !important;
+}
+
+
+/* Thumb styling */
+.os-scrollbar-handle {
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.os-scrollbar-track {
+  margin: 10px 3px 0px 0px;
+  height: calc(100% - 20px) !important;
+}
+
+@media all and (max-width: 768px) {
+  [data-slot="sheet-overlay"] {
+    inset: 60px 0 0 0 !important;
+  }
 }

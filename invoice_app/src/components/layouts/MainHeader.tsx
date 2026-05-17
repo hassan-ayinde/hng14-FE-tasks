@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { MdKeyboardArrowUp } from "react-icons/md";
-import { GoPlus } from "react-icons/go";
+import NewInvoiceForm from "@/pages/NewInvoiceForm";
 
 const MainHeader = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -36,7 +36,10 @@ const MainHeader = () => {
                 onOpenChange={(open) => setIsOpen(open)}
               >
                 <DropdownMenuTrigger className="flex justify-center items-center">
-                  <Button variant="outline" className="bg-white text-black hover:bg-gray-100 pointer-events-auto cursor-pointer">
+                  <Button
+                    variant="outline"
+                    className="bg-white text-black hover:bg-gray-100 pointer-events-auto cursor-pointer"
+                  >
                     <span>Filter</span>
                     {isOpen ? <MdKeyboardArrowUp /> : <MdKeyboardArrowDown />}
                   </Button>
@@ -71,12 +74,7 @@ const MainHeader = () => {
             </div>
           </div>
           <div>
-            <Button className="cursor-pointer rounded-full bg-primary-500 hover:bg-primary text-white">
-              <span className="inline-block bg-white text-black rounded-full">
-                <GoPlus />
-              </span>
-              <span>new</span>
-            </Button>
+            <NewInvoiceForm />
           </div>
         </section>
       </div>

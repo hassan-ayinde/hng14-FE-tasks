@@ -1,5 +1,5 @@
 import React from "react";
-import MainHeader from "@/components/layouts/mainHeader";
+import MainHeader from "@/components/layouts/MainHeader";
 import AppLayout from "@/components/layouts/AppLayout";
 
 

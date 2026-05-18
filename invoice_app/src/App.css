@@ -23,7 +23,6 @@ body {
   height: 20px !important;
 }
 
-
 /* Thumb styling */
 .os-scrollbar-handle {
   cursor: pointer;
@@ -32,6 +31,9 @@ body {
 .os-scrollbar-track {
   margin: 10px 3px 0px 0px;
   height: calc(100% - 20px) !important;
+}
+[data-slot="checkbox-indicator"] > svg {
+  stroke: white !important;
 }
 
 @media all and (max-width: 768px) {

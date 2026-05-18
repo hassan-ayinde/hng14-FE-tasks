@@ -57,7 +57,7 @@ const NewInvoiceForm = () => {
         <InvoiceFormBtn />
       </SheetTrigger>
       <SheetContent
-        className="rounded-tr-2xl rounded-br-2xl flex flex-col lg:ml-15 mt-15 lg:mt-0 w-screen! max-w-lg! lg:max-w-sm! [&>button.absolute]:hidden"
+        className="md:rounded-tr-2xl md:rounded-br-2xl flex flex-col lg:ml-15 mt-15 lg:mt-0 w-screen! max-w-lg! lg:max-w-sm! [&>button.absolute]:hidden"
         side="left"
       >
         <OverlayScrollbarsComponent

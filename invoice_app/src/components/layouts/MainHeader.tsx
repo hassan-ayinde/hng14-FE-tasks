@@ -15,6 +15,18 @@ import NewInvoiceForm from "@/pages/NewInvoiceForm";
 
 const MainHeader = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [selectedStatus, setSelectedStatus] = useState<string[]>([]);
+  const statuses = ["draft", "pending", "paid"];
+
+  const handleStatusChange = (status: string) => {
+    setSelectedStatus((prevSelected) => {
+      if (prevSelected.includes(status)) {
+        return prevSelected.filter((s) => s !== status);
+      } else {
+        return [...prevSelected, status];
+      }
+    });
+  };
 
   return (
     <header className="">
@@ -38,37 +50,40 @@ const MainHeader = () => {
                 <DropdownMenuTrigger className="flex justify-center items-center">
                   <Button
                     variant="outline"
-                    className="bg-white text-black hover:bg-gray-100 pointer-events-auto cursor-pointer"
+                    className="border-0 shadow-none text-black hover:bg-transparent pointer-events-auto cursor-pointer"
                   >
-                    <span>Filter</span>
-                    {isOpen ? <MdKeyboardArrowUp /> : <MdKeyboardArrowDown />}
+                    <span className="capitalize">
+                      filter{" "}
+                      <span className="hidden md:inline-block">by status</span>
+                    </span>
+                    {isOpen ? (
+                      <MdKeyboardArrowUp className="text-primary-500" />
+                    ) : (
+                      <MdKeyboardArrowDown className="text-primary-500" />
+                    )}
                   </Button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent sideOffset={10}>
-                  <DropdownMenuItem>
-                    <div className="flex gap-2">
-                      <Checkbox id="draft" className="cursor-pointer" />
-                      <Label htmlFor="draft" className="cursor-pointer">
-                        draft
+                <DropdownMenuContent
+                  sideOffset={10}
+                  className="capitalize"
+                >
+                  {statuses.map((status) => (
+                    <DropdownMenuItem
+                      key={status}
+                      onSelect={() => handleStatusChange(status)}
+                      className="flex items-center gap-2 group hover:bg-transparent focus:bg-transparent"
+                    >
+                      <Checkbox
+                        id={status}
+                        checked={selectedStatus.includes(status)}
+                        onCheckedChange={() => handleStatusChange(status)}
+                        className="data-checked:bg-primary-500 data-checked:border-primary-500 data-checked:stroke-white data-checked:hover:bg-primary-100 cursor-pointer group-hover:border-primary-500 group-hover:bg-accent group-hover:text-accent-foreground bg-primary-100"
+                      />
+                      <Label htmlFor={status} className="cursor-pointer">
+                        {status}
                       </Label>
-                    </div>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem>
-                    <div className="flex gap-2">
-                      <Checkbox id="pending" className="cursor-pointer" />
-                      <Label htmlFor="pending" className="cursor-pointer">
-                        pending
-                      </Label>
-                    </div>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem>
-                    <div className="flex gap-2">
-                      <Checkbox id="paid" className="cursor-pointer" />
-                      <Label htmlFor="paid" className="cursor-pointer">
-                        paid
-                      </Label>
-                    </div>
-                  </DropdownMenuItem>
+                    </DropdownMenuItem>
+                  ))}
                 </DropdownMenuContent>
               </DropdownMenu>
             </div>

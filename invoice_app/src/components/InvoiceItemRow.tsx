@@ -1,7 +1,8 @@
 import { Label } from "./ui/label";
 import { Input } from "./ui/input";
 import { MdDelete } from "react-icons/md";
-import type { FormData } from "./types/invoice";
+// import type { InvoiceData } from "../types/invoice";
+import type { InvoiceFormData } from "@/schema/invoiceSchema";
 import type {
   UseFormRegister,
   Control,
@@ -11,8 +12,8 @@ import { useWatch } from "react-hook-form";
 
 type InvoiceItemRowProps = {
   index: number;
-  register: UseFormRegister<FormData>;
-  control: Control<FormData>;
+  register: UseFormRegister<InvoiceFormData>;
+  control: Control<InvoiceFormData>;
   remove: UseFieldArrayRemove;
 };
 
@@ -39,7 +40,7 @@ const InvoiceItemRow = ({
         <Label htmlFor="itemName" className="capitalize font-semibold">
           item name
         </Label>
-        <Input id="itemName" {...register(`items.${index}.itemName`)} />
+        <Input id="itemName" {...register(`items.${index}.name`)} />
       </div>
       <div className="grid grid-cols-4 gap-3 md:gap-5 items-center">
         <div className="flex flex-col gap-3">

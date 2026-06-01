@@ -1,0 +1,527 @@
+{
+  "invoices": [
+    {
+      "id": 1,
+      "invoiceId": "XM9141",
+      "category": "Graphic Design",
+      "status": "Pending",
+      "invoiceDate": "2021-08-21",
+      "paymentDue": "2021-09-20",
+      "billTo": {
+        "name": "Alex Grim",
+        "streetAddress": "84 Church Way",
+        "city": "Bradford",
+        "postalCode": "BD1 9PB",
+        "country": "United Kingdom",
+        "email": "alexgrim@mail.com"
+      },
+      "sentFrom": {
+        "streetAddress": "Design Studio",
+        "city": "London",
+        "postalCode": "E1 3EZ",
+        "country": "United Kingdom"
+      },
+      "items": [
+        {
+          "name": "Banner Design",
+          "quantity": 1,
+          "price": 156,
+          "currency": "GBP",
+          "total": 156
+        }
+      ],
+      "grandTotal": 156,
+      "currency": "GBP"
+    },
+    {
+      "id": 2,
+      "invoiceId": "AB1023",
+      "category": "Web Development",
+      "status": "Paid",
+      "invoiceDate": "2022-01-10",
+      "paymentDue": "2022-02-10",
+      "billTo": {
+        "name": "Sarah Johnson",
+        "streetAddress": "12 King Street",
+        "city": "Manchester",
+        "postalCode": "M1 1AE",
+        "country": "United Kingdom",
+        "email": "sarah.johnson@mail.com"
+      },
+      "sentFrom": {
+        "streetAddress": "Tech Agency",
+        "city": "London",
+        "postalCode": "EC1A 1BB",
+        "country": "United Kingdom"
+      },
+      "items": [
+        {
+          "name": "Landing Page",
+          "quantity": 1,
+          "price": 500,
+          "currency": "GBP",
+          "total": 500
+        }
+      ],
+      "grandTotal": 500,
+      "currency": "GBP"
+    },
+    {
+      "id": 3,
+      "invoiceId": "CD3345",
+      "category": "UI/UX Design",
+      "status": "Draft",
+      "invoiceDate": "2023-03-05",
+      "paymentDue": "2023-04-05",
+      "billTo": {
+        "name": "Michael Brown",
+        "streetAddress": "88 Oxford Road",
+        "city": "Leeds",
+        "postalCode": "LS1 3AB",
+        "country": "United Kingdom",
+        "email": "michael.brown@mail.com"
+      },
+      "sentFrom": {
+        "streetAddress": "Design Studio",
+        "city": "Birmingham",
+        "postalCode": "B1 1AA",
+        "country": "United Kingdom"
+      },
+      "items": [
+        {
+          "name": "App UI Design",
+          "quantity": 1,
+          "price": 800,
+          "currency": "GBP",
+          "total": 800
+        }
+      ],
+      "grandTotal": 800,
+      "currency": "GBP"
+    },
+    {
+      "id": 4,
+      "invoiceId": "EF5567",
+      "category": "Illustration",
+      "status": "Pending",
+      "invoiceDate": "2023-05-12",
+      "paymentDue": "2023-06-12",
+      "billTo": {
+        "name": "Olivia Smith",
+        "streetAddress": "45 Park Lane",
+        "city": "London",
+        "postalCode": "W1K 1PN",
+        "country": "United Kingdom",
+        "email": "olivia.smith@mail.com"
+      },
+      "sentFrom": {
+        "streetAddress": "Creative Hub",
+        "city": "London",
+        "postalCode": "EC2A 2BC",
+        "country": "United Kingdom"
+      },
+      "items": [
+        {
+          "name": "Logo Illustration",
+          "quantity": 3,
+          "price": 120,
+          "currency": "GBP",
+          "total": 360
+        }
+      ],
+      "grandTotal": 360,
+      "currency": "GBP"
+    },
+    {
+      "id": 5,
+      "invoiceId": "GH7788",
+      "category": "Marketing",
+      "status": "Paid",
+      "invoiceDate": "2023-07-01",
+      "paymentDue": "2023-08-01",
+      "billTo": {
+        "name": "David Wilson",
+        "streetAddress": "22 Market Street",
+        "city": "Bristol",
+        "postalCode": "BS1 1AA",
+        "country": "United Kingdom",
+        "email": "david.wilson@mail.com"
+      },
+      "sentFrom": {
+        "streetAddress": "Marketing Agency",
+        "city": "London",
+        "postalCode": "SW1A 1AA",
+        "country": "United Kingdom"
+      },
+      "items": [
+        {
+          "name": "Social Media Campaign",
+          "quantity": 1,
+          "price": 1200,
+          "currency": "GBP",
+          "total": 1200
+        }
+      ],
+      "grandTotal": 1200,
+      "currency": "GBP"
+    },
+    {
+      "id": 6,
+      "invoiceId": "JK1122",
+      "category": "Copywriting",
+      "status": "Pending",
+      "invoiceDate": "2023-08-10",
+      "paymentDue": "2023-09-10",
+      "billTo": {
+        "name": "Emma Clark",
+        "streetAddress": "10 High Street",
+        "city": "Liverpool",
+        "postalCode": "L1 8JQ",
+        "country": "United Kingdom",
+        "email": "emma.clark@mail.com"
+      },
+      "sentFrom": {
+        "streetAddress": "Content Studio",
+        "city": "London",
+        "postalCode": "N1 9GU",
+        "country": "United Kingdom"
+      },
+      "items": [
+        {
+          "name": "Blog Articles",
+          "quantity": 5,
+          "price": 80,
+          "currency": "GBP",
+          "total": 400
+        }
+      ],
+      "grandTotal": 400,
+      "currency": "GBP"
+    },
+    {
+      "id": 7,
+      "invoiceId": "LM3344",
+      "category": "SEO Services",
+      "status": "Paid",
+      "invoiceDate": "2023-09-01",
+      "paymentDue": "2023-10-01",
+      "billTo": {
+        "name": "James Taylor",
+        "streetAddress": "77 Queen Street",
+        "city": "Leicester",
+        "postalCode": "LE1 1AA",
+        "country": "United Kingdom",
+        "email": "james.taylor@mail.com"
+      },
+      "sentFrom": {
+        "streetAddress": "SEO Agency",
+        "city": "London",
+        "postalCode": "WC2N 5DU",
+        "country": "United Kingdom"
+      },
+      "items": [
+        {
+          "name": "Keyword Optimization",
+          "quantity": 1,
+          "price": 650,
+          "currency": "GBP",
+          "total": 650
+        }
+      ],
+      "grandTotal": 650,
+      "currency": "GBP"
+    },
+    {
+      "id": 8,
+      "invoiceId": "NP5566",
+      "category": "Photography",
+      "status": "Draft",
+      "invoiceDate": "2023-10-15",
+      "paymentDue": "2023-11-15",
+      "billTo": {
+        "name": "Sophia White",
+        "streetAddress": "33 Elm Street",
+        "city": "Oxford",
+        "postalCode": "OX1 2JD",
+        "country": "United Kingdom",
+        "email": "sophia.white@mail.com"
+      },
+      "sentFrom": {
+        "streetAddress": "Photo Studio",
+        "city": "London",
+        "postalCode": "SE1 2UP",
+        "country": "United Kingdom"
+      },
+      "items": [
+        {
+          "name": "Product Shoot",
+          "quantity": 2,
+          "price": 300,
+          "currency": "GBP",
+          "total": 600
+        }
+      ],
+      "grandTotal": 600,
+      "currency": "GBP"
+    },
+    {
+      "id": 9,
+      "invoiceId": "QR7789",
+      "category": "Mobile App Development",
+      "status": "Pending",
+      "invoiceDate": "2024-01-05",
+      "paymentDue": "2024-02-05",
+      "billTo": {
+        "name": "Daniel Evans",
+        "streetAddress": "21 Station Road",
+        "city": "Nottingham",
+        "postalCode": "NG1 1AA",
+        "country": "United Kingdom",
+        "email": "daniel.evans@mail.com"
+      },
+      "sentFrom": {
+        "streetAddress": "App Studio",
+        "city": "London",
+        "postalCode": "E2 7AA",
+        "country": "United Kingdom"
+      },
+      "items": [
+        {
+          "name": "Android App Build",
+          "quantity": 1,
+          "price": 1500,
+          "currency": "GBP",
+          "total": 1500
+        }
+      ],
+      "grandTotal": 1500,
+      "currency": "GBP"
+    },
+    {
+      "id": 10,
+      "invoiceId": "ST9900",
+      "category": "Brand Strategy",
+      "status": "Paid",
+      "invoiceDate": "2024-02-12",
+      "paymentDue": "2024-03-12",
+      "billTo": {
+        "name": "Grace Miller",
+        "streetAddress": "9 Church Lane",
+        "city": "Cambridge",
+        "postalCode": "CB1 1AA",
+        "country": "United Kingdom",
+        "email": "grace.miller@mail.com"
+      },
+      "sentFrom": {
+        "streetAddress": "Brand Agency",
+        "city": "London",
+        "postalCode": "SW3 2AB",
+        "country": "United Kingdom"
+      },
+      "items": [
+        {
+          "name": "Brand Identity Kit",
+          "quantity": 1,
+          "price": 900,
+          "currency": "GBP",
+          "total": 900
+        }
+      ],
+      "grandTotal": 900,
+      "currency": "GBP"
+    },
+    {
+      "id": 11,
+      "invoiceId": "UV1234",
+      "category": "Video Editing",
+      "status": "Pending",
+      "invoiceDate": "2024-03-01",
+      "paymentDue": "2024-04-01",
+      "billTo": {
+        "name": "Henry Adams",
+        "streetAddress": "55 Hill Street",
+        "city": "Sheffield",
+        "postalCode": "S1 2GH",
+        "country": "United Kingdom",
+        "email": "henry.adams@mail.com"
+      },
+      "sentFrom": {
+        "streetAddress": "Media House",
+        "city": "London",
+        "postalCode": "NW1 6XE",
+        "country": "United Kingdom"
+      },
+      "items": [
+        {
+          "name": "YouTube Editing",
+          "quantity": 4,
+          "price": 100,
+          "currency": "GBP",
+          "total": 400
+        }
+      ],
+      "grandTotal": 400,
+      "currency": "GBP"
+    },
+    {
+      "id": 12,
+      "invoiceId": "WX5678",
+      "category": "E-commerce Setup",
+      "status": "Paid",
+      "invoiceDate": "2024-04-10",
+      "paymentDue": "2024-05-10",
+      "billTo": {
+        "name": "Isabella Moore",
+        "streetAddress": "18 Market Road",
+        "city": "York",
+        "postalCode": "YO1 7HH",
+        "country": "United Kingdom",
+        "email": "isabella.moore@mail.com"
+      },
+      "sentFrom": {
+        "streetAddress": "Web Solutions",
+        "city": "London",
+        "postalCode": "EC3A 8BF",
+        "country": "United Kingdom"
+      },
+      "items": [
+        {
+          "name": "Shopify Store Setup",
+          "quantity": 1,
+          "price": 1100,
+          "currency": "GBP",
+          "total": 1100
+        }
+      ],
+      "grandTotal": 1100,
+      "currency": "GBP"
+    },
+    {
+      "id": 13,
+      "invoiceId": "YZ9012",
+      "category": "Consulting",
+      "status": "Draft",
+      "invoiceDate": "2024-05-01",
+      "paymentDue": "2024-06-01",
+      "billTo": {
+        "name": "William Scott",
+        "streetAddress": "29 Greenway",
+        "city": "Reading",
+        "postalCode": "RG1 1AA",
+        "country": "United Kingdom",
+        "email": "william.scott@mail.com"
+      },
+      "sentFrom": {
+        "streetAddress": "Consulting Group",
+        "city": "London",
+        "postalCode": "W1D 3QF",
+        "country": "United Kingdom"
+      },
+      "items": [
+        {
+          "name": "Business Strategy Session",
+          "quantity": 2,
+          "price": 350,
+          "currency": "GBP",
+          "total": 700
+        }
+      ],
+      "grandTotal": 700,
+      "currency": "GBP"
+    },
+    {
+      "id": 14,
+      "invoiceId": "ZA3456",
+      "category": "Animation",
+      "status": "Pending",
+      "invoiceDate": "2024-06-15",
+      "paymentDue": "2024-07-15",
+      "billTo": {
+        "name": "Ava Thompson",
+        "streetAddress": "66 River Road",
+        "city": "Glasgow",
+        "postalCode": "G1 2FF",
+        "country": "United Kingdom",
+        "email": "ava.thompson@mail.com"
+      },
+      "sentFrom": {
+        "streetAddress": "Animation Studio",
+        "city": "London",
+        "postalCode": "SE11 5QY",
+        "country": "United Kingdom"
+      },
+      "items": [
+        {
+          "name": "2D Animation",
+          "quantity": 2,
+          "price": 450,
+          "currency": "GBP",
+          "total": 900
+        }
+      ],
+      "grandTotal": 900,
+      "currency": "GBP"
+    },
+    {
+      "id": 15,
+      "invoiceId": "BC7890",
+      "category": "Software Maintenance",
+      "status": "Paid",
+      "invoiceDate": "2024-07-20",
+      "paymentDue": "2024-08-20",
+      "billTo": {
+        "name": "Lucas Martin",
+        "streetAddress": "14 Victoria Street",
+        "city": "Coventry",
+        "postalCode": "CV1 5FB",
+        "country": "United Kingdom",
+        "email": "lucas.martin@mail.com"
+      },
+      "sentFrom": {
+        "streetAddress": "Tech Support Ltd",
+        "city": "London",
+        "postalCode": "EC4A 2AB",
+        "country": "United Kingdom"
+      },
+      "items": [
+        {
+          "name": "Monthly Maintenance",
+          "quantity": 1,
+          "price": 300,
+          "currency": "GBP",
+          "total": 300
+        },
+        {
+          "name": "Bug Fixing",
+          "quantity": 5,
+          "price": 50,
+          "currency": "GBP",
+          "total": 250
+        },
+        {
+          "name": "Consulting Hours",
+          "quantity": 2,
+          "price": 100,
+          "currency": "GBP",
+          "total": 200
+        },
+        {
+          "name": "Feature Updates",
+          "quantity": 3,
+          "price": 100,
+          "currency": "GBP",
+          "total": 300
+        },
+        {
+          "name": "Performance Optimization",
+          "quantity": 1,
+          "price": 200,
+          "currency": "GBP",
+          "total": 200
+        }
+      ],
+      "grandTotal": 1250,
+      "currency": "GBP"
+    }
+  ]
+}

@@ -10,7 +10,13 @@ import {
 } from "@/components/ui/sheet";
 import InvoiceFormBtn from "@/components/InvoiceFormBtn";
 import { MdKeyboardArrowLeft } from "react-icons/md";
-import { useForm, Controller, useFieldArray } from "react-hook-form";
+import {
+  useForm,
+  Controller,
+  useFieldArray,
+  type SubmitHandler,
+  type Resolver,
+} from "react-hook-form";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -28,27 +34,60 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import InvoiceItemRow from "@/components/InvoiceItemRow";
-import type { FormData } from "@/components/types/invoice";
+// import type { InvoiceData } from "@/types/invoice";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { invoiceSchema } from "@/schema/invoiceSchema";
+import type { InvoiceFormData } from "@/schema/invoiceSchema";
 
 import "overlayscrollbars/overlayscrollbars.css";
 import { OverlayScrollbarsComponent } from "overlayscrollbars-react";
 
 const NewInvoiceForm = () => {
-  const { register, handleSubmit, control, reset } = useForm<FormData>({
+  const {
+    register,
+    handleSubmit,
+    control,
+    reset,
+    formState: { errors },
+  } = useForm<InvoiceFormData>({
+    resolver: zodResolver(invoiceSchema) as Resolver<InvoiceFormData>,
     defaultValues: {
+      sentFrom: {
+        streetAddress: "",
+        city: "",
+        postalCode: "",
+        country: "",
+      },
+
+      billTo: {
+        name: "",
+        email: "",
+        streetAddress: "",
+        city: "",
+        postalCode: "",
+        country: "",
+      },
+
       invoiceDate: null,
+
+      paymentTerms: "Net 14 Days",
+
       items: [
         {
-          itemName: "",
+          name: "",
           quantity: 0,
           price: 0,
           total: 0,
+          currency: "",
         },
       ],
     },
   });
-  const { fields, append, remove } = useFieldArray({ control, name: "items" });
-  const onSubmit = (data: FormData) => {
+  const { fields, append, remove } = useFieldArray<InvoiceFormData>({
+    control,
+    name: "items",
+  });
+  const onSubmit: SubmitHandler<InvoiceFormData> = (data) => {
     console.log(data);
   };
   return (
@@ -107,15 +146,25 @@ const NewInvoiceForm = () => {
                         </Label>
                         <Input
                           id="streetAddress"
-                          {...register("from.streetAddress")}
+                          {...register("sentFrom.streetAddress")}
                         />
+                        {errors.sentFrom?.streetAddress && (
+                          <p className="text-red-500 text-sm mt-1">
+                            {errors.sentFrom.streetAddress.message}
+                          </p>
+                        )}
                       </div>
                       <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                         <div className="flex flex-col gap-2">
                           <Label htmlFor="city" className="capitalize">
                             City
                           </Label>
-                          <Input id="city" {...register("from.city")} />
+                          <Input id="city" {...register("sentFrom.city")} />
+                          {errors.sentFrom?.city && (
+                            <p className="text-red-500 text-sm mt-1">
+                              {errors.sentFrom.city.message}
+                            </p>
+                          )}
                         </div>
                         <div className="flex flex-col gap-2">
                           <Label htmlFor="postalCode" className="capitalize">
@@ -123,8 +172,13 @@ const NewInvoiceForm = () => {
                           </Label>
                           <Input
                             id="postalCode"
-                            {...register("from.postalCode")}
+                            {...register("sentFrom.postalCode")}
                           />
+                          {errors.sentFrom?.postalCode && (
+                            <p className="text-red-500 text-sm mt-1">
+                              {errors.sentFrom.postalCode.message}
+                            </p>
+                          )}
                         </div>
                         <div className="flex flex-col gap-2 col-span-2 md:col-span-1">
                           <Label htmlFor="country" className="capitalize">
@@ -132,9 +186,14 @@ const NewInvoiceForm = () => {
                           </Label>
                           <Input
                             id="country"
-                            {...register("from.country")}
+                            {...register("sentFrom.country")}
                             className="w-full"
                           />
+                          {errors.sentFrom?.country && (
+                            <p className="text-red-500 text-sm mt-1">
+                              {errors.sentFrom.country.message}
+                            </p>
+                          )}
                         </div>
                       </div>
                     </div>
@@ -149,7 +208,12 @@ const NewInvoiceForm = () => {
                         >
                           client's name
                         </Label>
-                        <Input id="clientName" {...register("clientName")} />
+                        <Input id="clientName" {...register("billTo.name")} />
+                        {errors.billTo?.name && (
+                          <p className="text-red-500 text-sm mt-1">
+                            {errors.billTo.name.message}
+                          </p>
+                        )}
                       </div>
                       <div className="flex flex-col gap-2">
                         <Label
@@ -158,7 +222,12 @@ const NewInvoiceForm = () => {
                         >
                           client email
                         </Label>
-                        <Input id="clientEmail" {...register("clientEmail")} />
+                        <Input id="clientEmail" {...register("billTo.email")} />
+                        {errors.billTo?.email && (
+                          <p className="text-red-500 text-sm mt-1">
+                            {errors.billTo.email.message}
+                          </p>
+                        )}
                       </div>
                       <div className="flex flex-col gap-2">
                         <Label
@@ -169,8 +238,13 @@ const NewInvoiceForm = () => {
                         </Label>
                         <Input
                           id="streetAddress"
-                          {...register("to.streetAddress")}
+                          {...register("billTo.streetAddress")}
                         />
+                        {errors.billTo?.streetAddress && (
+                          <p className="text-red-500 text-sm mt-1">
+                            {errors.billTo.streetAddress.message}
+                          </p>
+                        )}
                       </div>
                       <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                         <div className="flex flex-col gap-2">
@@ -180,7 +254,12 @@ const NewInvoiceForm = () => {
                           >
                             City
                           </Label>
-                          <Input id="city" {...register("to.city")} />
+                          <Input id="city" {...register("billTo.city")} />
+                          {errors.billTo?.city && (
+                            <p className="text-red-500 text-sm mt-1">
+                              {errors.billTo.city.message}
+                            </p>
+                          )}
                         </div>
                         <div className="flex flex-col gap-2">
                           <Label
@@ -191,8 +270,13 @@ const NewInvoiceForm = () => {
                           </Label>
                           <Input
                             id="postalCode"
-                            {...register("to.postalCode")}
+                            {...register("billTo.postalCode")}
                           />
+                          {errors.billTo?.postalCode && (
+                            <p className="text-red-500 text-sm mt-1">
+                              {errors.billTo.postalCode.message}
+                            </p>
+                          )}
                         </div>
                         <div className="flex flex-col gap-2 col-span-2 md:col-span-1">
                           <Label
@@ -201,7 +285,12 @@ const NewInvoiceForm = () => {
                           >
                             country
                           </Label>
-                          <Input id="country" {...register("to.country")} />
+                          <Input id="country" {...register("billTo.country")} />
+                          {errors.billTo?.country && (
+                            <p className="text-red-500 text-sm mt-1">
+                              {errors.billTo.country.message}
+                            </p>
+                          )}
                         </div>
                       </div>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -229,6 +318,11 @@ const NewInvoiceForm = () => {
                                 />
                               )}
                             />
+                            {errors.invoiceDate && (
+                              <p className="text-red-500 text-sm mt-1">
+                                {errors.invoiceDate.message}
+                              </p>
+                            )}
                           </LocalizationProvider>
                         </div>
                         <div className="flex flex-col gap-2">
@@ -238,38 +332,41 @@ const NewInvoiceForm = () => {
                           >
                             payment terms
                           </Label>
-                          <Select>
-                            <SelectTrigger className="w-full cursor-pointer">
-                              <SelectValue
-                                placeholder="Payment Terms"
-                                id="paymentTerms"
-                              />
-                            </SelectTrigger>
-                            <SelectContent
-                              alignItemWithTrigger={false}
-                              className="mt-5"
-                            >
-                              <SelectGroup>
-                                {[
-                                  "Net 1 Day",
-                                  "Net 7 Days",
-                                  "Net 14 Days",
-                                  "Net 30 Days",
-                                ].map((term) => (
-                                  <SelectItem
-                                    key={term}
-                                    value={term}
-                                    className="py-0 cursor-pointer border-b hover:bg-transparent! border-gray-300 rounded-none last:border-0"
-                                  >
-                                    <div className="py-2 text-md font-semibold hover:text-primary-500!">
-                                      {term}
-                                    </div>
-                                    {/* {term} */}
-                                  </SelectItem>
-                                ))}
-                              </SelectGroup>
-                            </SelectContent>
-                          </Select>
+                          <Controller
+                            name="paymentTerms"
+                            control={control}
+                            render={({ field }) => (
+                              <Select
+                                value={field.value}
+                                onValueChange={field.onChange}
+                              >
+                                <SelectTrigger className="w-full cursor-pointer">
+                                  <SelectValue placeholder="Payment Terms" />
+                                </SelectTrigger>
+
+                                <SelectContent>
+                                  <SelectGroup>
+                                    {[
+                                      "Net 1 Day",
+                                      "Net 7 Days",
+                                      "Net 14 Days",
+                                      "Net 30 Days",
+                                    ].map((term) => (
+                                      <SelectItem key={term} value={term}>
+                                        {term}
+                                      </SelectItem>
+                                    ))}
+                                  </SelectGroup>
+                                </SelectContent>
+                              </Select>
+                            )}
+                          />
+
+                          {errors.paymentTerms && (
+                            <p className="text-red-500 text-sm">
+                              {errors.paymentTerms.message}
+                            </p>
+                          )}
                         </div>
                       </div>
                     </div>
@@ -291,10 +388,11 @@ const NewInvoiceForm = () => {
                       type="button"
                       onClick={() => {
                         append({
-                          itemName: "",
+                          name: "",
                           quantity: 0,
                           price: 0,
                           total: 0,
+                          currency: "",
                         });
                       }}
                     >
